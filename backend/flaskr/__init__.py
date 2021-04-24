@@ -43,12 +43,12 @@ def create_app(test_config=None):
       for all available categories.
         '''
 
-    @app.route('/catergories')
+    @app.route('/categories')
     def get_categories():
         categories = Category.query.order_by(Category.type).all()
 
-        if len(current_questions) == 0:
-          abort(404)
+        if len(categories) == 0:
+            abort(404)
 
         return jsonify({
             'success': True,
